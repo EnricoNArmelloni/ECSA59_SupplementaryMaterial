@@ -33,21 +33,32 @@ model score=  ((AUC_ME * Kappa_ME )+(AUC_RF * Kappa_RF))/2
 
 **Index clustering**: suitability index is calculated by counting the number of pixels where the species were predicted. Each index is a time series of species habitat suitability, spanning from 2005 to 2021 (ideally). Due to data constrains, in some years it was not possible to fit the machine learning models. Index with less than 15 data points were excluded and then the remaining data gaps were filled with linear interpolation. Time series were analysed with Generalized Dynamic Principal Component (Peña and Yohai, 2016), a dimension reduction technique that base on principal components technique aimed to identify a reduced number of common trends among a set of time series. Original time-series were assigned to the identified trends seeking for coorelation between the estimated principal components and the raw data.
 
-**Index Spatial patterns**: suitability index timeseries by grid cell were modelled with Theil Shen robust regression where HS α + β * Year + ε. Filled only cells where
+**Index Spatial patterns**: suitability index timeseries by grid cell were modelled with Theil Shen robust regression where HS = α + β * Year + ε. Filled only cells where
 year effect was significant (p value < 0.05)
 
 
 ## Results
 
-**Research Question 1**
-![](docs/vars_count.png)<!-- -->
+**Research Question 1**: Which are the main drivers for habitat suitability modelling?
 
-**Research QUestion 2**
+![blabla](docs/vars_count.png)
+<!-- -->
+*Figure 1: Number of times each explanatory variable was included into HS optimal model (on a total of 46 species modelled)*
+
+**Research Question 2**: Did habitat suitability change over time?
 ![](docs/suitability_index_github.png)<!-- -->
+*Figure 2: aggregated HS time series with linear trend (red)*
 
-**Research QUestion 3**
+**Research Question 3**: Can we group species based on habitat suitability trends?
+![](docs/index_clustering.png)<!-- -->
+*Figure 3: aggregated HS time series clustering with GDPC model + associated number of species by faunistic category*
 
-**Research QUestion 4**
+**Research Question 4**: Do habitat suitability alterations have spatial pattern?
+![](docs/spatial_patterns.png)<!-- -->
+*Figure 4: Spatial distribution of significant HS trends*
+
+
+## References
 
 
 
